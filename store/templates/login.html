@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="wrapper" style="background-image: url({% static '/images/ecom-bag.jpg' %});">
+    <div class="inner">
+        <div class="image-holder">
+            <img src="{% static '/images/registration-form-1.jpg' %}" alt="">
+        </div>
+        <form action="" method="POST" style="padding-top: 115px;">
+            {% csrf_token %}
+
+            {% if error %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+              </div>
+            {% endif %}
+            <h3 style="padding: 0 80px;">Login Form</h3>
+            
+            <div class="form-wrapper">
+                <input type="text" placeholder="Username" name="username" class="form-control">
+                <i class="zmdi zmdi-account"></i>
+            </div>
+            <div class="form-wrapper">
+                <input type="password" name="password" placeholder="Password" class="form-control">
+                <i class="zmdi zmdi-lock"></i>
+            </div>
+            <!-- <div class="form-wrapper">
+                <input type="password" name="password2" placeholder="Confirm Password" class="form-control">
+                <i class="zmdi zmdi-lock"></i>
+            </div> -->
+            <button>Login
+                <i class="zmdi zmdi-arrow-right"></i>
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}  

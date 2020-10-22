@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load mptt_tags %}
+{% block content %}
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-lg-3 mx-auto">
+
+                <!-- <ul class="list-group">
+                    {% recursetree categorys %}
+                        <li><a href="/?category={{ categorys.id }}" class="list-group-item" href="">{{ node.name }}</a>
+                        {% if not node.is_leaf_node %}
+                            <ul class="list-group"> 
+                                <li><a class="list-group-item " href="">{{ children }}</a></li>
+                            </ul>
+                        {% endif %}
+                        </li>
+                    {% endrecursetree %}
+                </ul> -->
+                <div class="list-group">
+                    <a href="/" class="list-group-item list-group-item-action">All</a>
+                    {% for category in categorys %}
+                    <a href="/?category={{ category.id }}" class="list-group-item list-group-item-action">
+                        {{ category.name }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+
+        <div id="products" class="col-lg-9 mx-auto">
+            <div class="row">
+                {% for product in products %}
+                    <div class="card" style="width: 18rem;">
+                        <img height="300" src="{{ product.image.url }}" class="card-img-top" alt="...">
+                        <div class="card-body"> 
+                            <h6 class="card-title">{{ product.name }}</h6>
+                            <p class="card-text">{{ product.category.parent }} > {{ product.category }}</p>
+                            <p class="card-text">{{ product.price }}</p>
+
+                            <form action="/" method="POST">
+                                {% csrf_token %}
+                                <input hidden type="text" name="product" value="{{ product.id }}">
+                                <input type="submit" href="#" class="btn btn-light border btn-sm" value="Add to Cart">
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    </div>    
+    {% endblock %}
