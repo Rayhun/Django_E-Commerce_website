@@ -8,18 +8,24 @@ from store.models.model_customer import Customer
 class Index(View):
     def post(self, request):
         product = request.POST.get('product')
+        remove = request.POST.get('remove')
         cart = request.session.get('cart')
         if cart:
             quantity = cart.get(product)
             if quantity:
-                cart[product] = quantity + 1
+                if remove:
+                    if quantity <= 1:
+                        cart.pop(product)
+                    else:
+                        cart[product] = quantity - 1 # increment  
+                else:
+                    cart[product] = quantity + 1 # decrement
             else:
-                cart[product] = 1
+                cart[product] = 1 # New Add
         else:
             cart = {}
             cart[product] = 1 
         request.session['cart'] = cart
-        print(request.session['cart'])
         return redirect("home")
 
     def get(self, request):

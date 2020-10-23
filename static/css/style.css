@@ -3,7 +3,25 @@
     padding: 0;
     outline: 0;
 }
-
+.btn:not(:disabled):not(.disabled) {
+  padding-left: 20px;
+}
+.btn-info {
+  padding-right: 25px;
+}
+.btn.focus, .btn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    padding-left: -18px;
+    padding-right: 23px;
+}
+.cart_quantity{
+  font-weight: 600;
+  line-height: 36px;
+}
+.add-to-cart{
+  font-weight: 600;
+}
 
 /* =========== Sign UP ========== */
   .wrapper {
