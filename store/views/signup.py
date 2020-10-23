@@ -72,5 +72,5 @@ class Signup(View):
         elif not customer.password:
             error_message = "password is required"
         elif len(customer.password) < 6:
-            error_message = "password minimum 6 Disit required"
+            error_message = "Password minimum six digit required"
         return error_message
