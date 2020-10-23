@@ -8,7 +8,7 @@
 <div class="container-fluid">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="/">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -21,27 +21,37 @@
       </ul>
 
       <ul class="navbar-nav ml-auto">
+        {% if request.session.username %}
         <li class="nav-item active">
-          <a class="nav-link" href="/">Logout <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/cart">Cart <span class="sr-only">(current)</span></a>
         </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/orders">Order <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/logout">Logout <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" href="#">Setting & Privacy</a>
+            <a class="dropdown-item" href="#">Help & Support</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Logout</a>
+          </div>
+        </li>
+        {% else %}
         <li class="nav-item active">
             <a class="nav-link" href="/signup">Signup <span class="sr-only">(current)</span></a>
           </li>
+          
           <li class="nav-item active">
             <a class="nav-link" href="/login">Lognin <span class="sr-only">(current)</span></a>
           </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Account
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Profile</a>
-              <a class="dropdown-item" href="#">Setting & Privacy</a>
-              <a class="dropdown-item" href="#">Help & Support</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Logout</a>
-            </div>
-          </li>
+          {% endif %}
       </ul>
     </div>
   </nav>

@@ -9,7 +9,7 @@ class Login(View):
     def get(self, request):
         return render(request, 'login.html')
 
-    def post(self, request):
+    def post(self, request): 
         username = request.POST.get('username')
         password = request.POST.get('password')
 
@@ -27,3 +27,6 @@ class Login(View):
             error_message = "Email or Password Not Match"
         return render (request, 'login.html', {'error': error_message})
         
+def logout(request):
+    request.session.clear()
+    return redirect('login')
