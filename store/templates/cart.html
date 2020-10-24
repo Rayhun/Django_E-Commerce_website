@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load cart %}
+{% load custom_filter %}
 <div class="container">
     <div class="border pb-4">
 
@@ -21,9 +22,9 @@
                     <td>{{ forloop.counter }}</td>
                     <td><img width="50" src="{{ product.image.url }}" alt=""></td>
                     <td>{{ product.name }}</td>
-                    <td>{{ product.price }}</td>
+                    <td>{{ product.price|currency }}</td>
                     <td>{{ product|cart_quantity:request.session.cart }}</td>
-                    <td>{{ product|total_price:request.session.cart }}</td>
+                    <td>{{ product|total_price:request.session.cart|currency }}</td>
                     <td></td>
                 </tr>
                 {% endfor %}
@@ -33,7 +34,7 @@
                     <th></th>
                     <th colspan="3"></th>
                     <th>Total</th>
-                    <th>{{ products|total_cart_price:request.session.cart }}</th>
+                    <th>{{ products|total_cart_price:request.session.cart|currency }}</th>
                 </tr>
             </tfoot>
         </table>

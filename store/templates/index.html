@@ -2,6 +2,8 @@
 {% load mptt_tags %}
 {% block content %}
 {% load cart %}
+{% load custom_filter %}
+
     <div class="container-fluid">
 
         <div class="row">
@@ -35,7 +37,7 @@
                         <div class="card-body"> 
                             <h6 class="card-title">{{ product.name }}</h6>
                             <p class="card-text">{{ product.category.parent }} > {{ product.category }}</p>
-                            <p class="card-text">{{ product.price }}</p>
+                            <p class="card-text">{{ product.price|currency }}</p>
                              
                         </div>
                         <div class="card-footer p-0">
