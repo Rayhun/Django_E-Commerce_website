@@ -35,7 +35,7 @@
                     <div class="card" id={{product.id}} style="width: 18rem;">
                         <img height="300" src="{{ product.image.url }}" class="card-img-top" alt="...">
                         <div class="card-body"> 
-                            <h6 class="card-title">{{ product.name }}</h6>
+                            <h6 class="card-title"><p style="cursor: pointer;" title="{{ product.name }}">{{ product.name|truncatechars:25 }}</p></h6>
                             <p class="card-text">{{ product.category.parent }} > {{ product.category }}</p>
                             <p class="card-text">{{ product.price|currency }}</p>
                              

@@ -21,7 +21,7 @@
                 <tr>
                     <td>{{ forloop.counter }}</td>
                     <td><img width="50" src="{{ product.image.url }}" alt=""></td>
-                    <td>{{ product.name }}</td>
+                    <td><p style="cursor: pointer;" title="{{ product.name }}">{{ product.name|truncatechars:25 }}</p></td>
                     <td>{{ product.price|currency }}</td>
                     <td>{{ product|cart_quantity:request.session.cart }}</td>
                     <td>{{ product|total_price:request.session.cart|currency }}</td>
@@ -40,9 +40,40 @@
         </table>
         <hr>
         <div class="m-3 p-3">
-            <a class="border btn col-lg-3 float-right btn-outline-info" href="#">Check Out</a>
+            <a data-toggle="modal" data-target="#exampleModal" class="border btn col-lg-3 float-right btn-outline-info" href="#">Check Out</a>
         </div>
     </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Check Out Form</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <hr>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <div class="p-3 m-3">
+             <form action="/chackout/"  method="POST">
+              {% csrf_token %}
+                <div class="form-group">
+                  <label for="">Address</label>
+                  <input type="text" name="address" id="" class="form-control" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="">Mobile</label>
+                  <input type="text" name="mobile" id="" class="form-control" placeholder="">
+                </div>
+                <input class="btn btn-sm btn-outline-info float-right" type="submit" value="Check out">
+            </form>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
    
 {% endblock %}

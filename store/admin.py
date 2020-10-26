@@ -3,6 +3,7 @@ from store.models.model_product import Product
 from mptt.admin import MPTTModelAdmin
 from store.models.model_category import Category
 from store.models.model_customer import Customer
+from store.models.model_order import Order
 
 
 class AdminProduct(admin.ModelAdmin):
@@ -11,3 +12,4 @@ class AdminProduct(admin.ModelAdmin):
 admin.site.register(Product, AdminProduct)
 admin.site.register(Category, MPTTModelAdmin)  
 admin.site.register(Customer)
+admin.site.register(Order)
