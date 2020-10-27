@@ -3,6 +3,7 @@ from .model_customer import Customer
 from .model_product import Product
 import datetime
 
+
 class Order(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
@@ -13,5 +14,10 @@ class Order(models.Model):
     date = models.DateField(default=datetime.datetime.today)
 
     def __str__(self):
-        return self.customer
+        return str(self.customer.username)
+
+    @staticmethod
+    def get_order_by_customer_id(customer_id):
+        customer = Order.objects.filter(customer=customer_id)
+        return customer
     

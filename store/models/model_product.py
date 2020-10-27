@@ -12,7 +12,7 @@ class Product(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return str(self.name)
 
     @staticmethod
     def get_product_by_id(ids):
