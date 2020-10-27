@@ -23,7 +23,7 @@
                 <tr>
                     <td>{{ forloop.counter }}</td>
                     <td><img width="50" src="{{ order.product.image.url }}" alt=""></td>
-                    <td><p style="cursor: pointer;" title="{{ order.product.name }}">{{ order.product.name|truncatechars:25 }}</p></td>
+                    <td><p style="cursor: pointer;" title="{{ order.product.name  }}">{{ order.product.name|truncatechars:25 }}</p></td>
                     <td>{{ order.date }}</td>
                     <td>{{ order.price|currency }}</td>
                     <td>{{ order.quantity }}</td>
