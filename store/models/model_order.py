@@ -12,12 +12,13 @@ class Order(models.Model):
     address = models.CharField(max_length=100, default='')
     mobile = models.CharField(max_length=25, default='')
     date = models.DateField(default=datetime.datetime.today)
+    status = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.customer.username)
 
     @staticmethod
     def get_order_by_customer_id(customer_id):
-        customer = Order.objects.filter(customer=customer_id)
+        customer = Order.objects.filter(customer=customer_id).order_by('-date')
         return customer
     

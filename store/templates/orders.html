@@ -28,7 +28,13 @@
                     <td>{{ order.price|currency }}</td>
                     <td>{{ order.quantity }}</td>
                     <td>{{ order.quantity|multiply:order.price|currency }}</td>
-                    <td>{{ order.status|default:"Pending" }}</td>
+                    <th>
+                        {% if order.status %}
+                        <p>Complete</p>
+                        {% else %}
+                        <p>Pending</p>
+                        {% endif %}
+                    </th>  
                 </tr>
                 {% endfor %}
             </tbody> 

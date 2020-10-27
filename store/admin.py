@@ -9,7 +9,9 @@ from store.models.model_order import Order
 class AdminProduct(admin.ModelAdmin):
     list_display = ['name', 'price', 'category', 'date']
 
+class AdminOoder(admin.ModelAdmin):
+    list_display = ['product', 'quantity', 'price', 'status']
 admin.site.register(Product, AdminProduct)
 admin.site.register(Category, MPTTModelAdmin)  
 admin.site.register(Customer)
-admin.site.register(Order)
+admin.site.register(Order, AdminOoder)
