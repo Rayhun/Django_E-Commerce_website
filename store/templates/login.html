@@ -10,7 +10,6 @@
         </div>
         <form action="" method="POST" style="padding-top: 115px;">
             {% csrf_token %}
-
             {% if error %}
             <div class="alert alert-danger" role="alert">
                 {{ error }}
@@ -26,10 +25,6 @@
                 <input type="password" name="password" placeholder="Password" class="form-control">
                 <i class="zmdi zmdi-lock"></i>
             </div>
-            <!-- <div class="form-wrapper">
-                <input type="password" name="password2" placeholder="Confirm Password" class="form-control">
-                <i class="zmdi zmdi-lock"></i>
-            </div> -->
             <button>Login
                 <i class="zmdi zmdi-arrow-right"></i>
             </button>
