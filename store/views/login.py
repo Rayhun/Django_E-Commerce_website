@@ -6,9 +6,9 @@ from store.models.model_customer import Customer
 
 
 class Login(View):
-    return_url = None
+    # return_url = None
     def get(self, request):
-        Login.return_url = request.GET.get('return_url')
+        # Login.return_url = request.GET.get('return_url')
         return render(request, 'login.html')
 
     def post(self, request): 
@@ -23,10 +23,10 @@ class Login(View):
                 request.session['customer_id'] = customer.id
                 request.session['username'] = customer.username
                 
-                if Login.return_url:
-                    return HttpResponseRedirect(Login.return_url)
-                else:
-                    Login.return_url = None
+                # if Login.return_url:
+                #     return HttpResponseRedirect(Login.return_url)
+                # else:
+                #     Login.return_url = None
                 return redirect('home')
 
             else:
