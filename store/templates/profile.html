@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <style>
 table {
@@ -24,12 +25,12 @@ tr:nth-child(even) {
     <div class="bg-info text-white py-1 pl-2">
       <h4>Profile</h4>
     </div>
-    <div class="bg-secondary">
+    <div class="bg-secondary p-2">
       <div class="row">
         <div class="col-lg-2">
-          <img src="" alt="">
+          <img width="100" src="{% static 'images/demo.jpg' %}" alt="">
         </div>
-        <div class="col-lg-10 py-5 h4 text-white">
+        <div class="col-lg-10 h4 pt-5 text-white">
           {{ first_name }} {{ last_name }}
         </div>
       </div>
@@ -71,6 +72,14 @@ tr:nth-child(even) {
       <tr>
         <td>Gender:</td>
         <td>{{ gender }}</td>
+      </tr>
+      <tr>
+        <td>Last O,Q</td>
+        <td><a href="{% url 'cart' %}">{{ product|length }} Product</a></td>
+      </tr>
+      <tr>
+        <td>Last Order</td>
+        <td>{{ order.date }}</td>
       </tr>
       <tr>
         <td>Date Joined</td>

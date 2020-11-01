@@ -65,11 +65,18 @@ tr:nth-child(even) {
               <td>Bio</td>
               <td>{{ form.bio }}</td>
             </tr>
-            
-              <button type="submit" href="{% url 'profile' %}" class="btn-info btn-block text-white py-2 pl-2 mb-4 h4 text-justify">
-                Update Details
-              </button>
+            <tr>
+              <td>Birth Day</td>
+              <td>{{ form.birth_day }}</td>
+            </tr>
+            <tr>
+              <td>Birth Day</td>
+              <td>{{ form.profile_img.url }}</td>
+            </tr>
             </table>
+            <button type="submit" href="{% url 'profile' %}" class="btn-info btn-block text-white py-2 pl-2 mb-4 h4 text-justify">
+              Update Details
+            </button>
     </form>
   </div>
 </div>
