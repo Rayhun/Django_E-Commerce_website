@@ -6,6 +6,8 @@ from .views.login import logout
 from .views.cart import Cart
 from .views.chackout import Chackout
 from .views.order import OrderView
+from .views.profile import Profile
+from .views.profile_update import ProfileUpdate
 from django.utils.decorators import method_decorator
 
 from store.middlewares.auth import auth_middleware
@@ -17,4 +19,7 @@ urlpatterns = [
     path('cart/', auth_middleware(Cart.as_view()), name='cart'),
     path('chackout/', auth_middleware(Chackout.as_view()), name='chackout'),
     path('orders/',auth_middleware(OrderView.as_view()), name='orders'),
+    
+    path('profile/',Profile.as_view(), name='profile'),
+    path('profile_update/',ProfileUpdate.as_view(), name='profile_update'),
 ]

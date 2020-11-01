@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+<div class="container">
+<div class="row">
+  <div class="col-lg-offset-4"></div>
+  <div class="col-lg-8 m-auto">
+    <div class="bg-info text-white py-1 pl-2">
+      <h4>Profile</h4>
+    </div>
+    <div class="bg-secondary">
+      <div class="row">
+        <div class="col-lg-2">
+          <img src="" alt="">
+        </div>
+        <div class="col-lg-10 py-5 h4 text-white">
+          {{ first_name }} {{ last_name }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-offset-4"></div>
+  <div class="col-lg-8 m-auto">
+  <table>
+    <tr>
+      <th>ID:</th>
+      <th>{{ customer_id }}</th>
+    </tr>
+    <tr>
+      <td>Full Name:</td>
+      <td>{{ first_name }} {{ last_name }}</td>
+    </tr>
+    <tr>
+      <td>Username:</td>
+      <td>{{ customer }}</td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td>{{ email }}</td>
+    </tr>
+    <tr>
+      <td>Mobile:</td>
+      <td>{{ mobile }}</td>
+    </tr>
+      <tr>
+        <th>Bio:</th>
+        <th>{{ bio }}</th>
+      </tr>
+      <tr>
+        <td>Birthday:</td>
+        <td>{{ birth_day }}</td>
+      </tr>
+      <tr>
+        <td>Gender:</td>
+        <td>{{ gender }}</td>
+      </tr>
+      <tr>
+        <td>Date Joined</td>
+        <td>{{ user.date_joined }}</td>
+      </tr>
+      <tr>
+        <td>Last Login</td>
+        <td>{{ user.last_login }}</td>
+      </tr>
+    </table>
+    <a href="{% url 'profile_update' %}" class="btn-info btn-block text-center text-white py-2 mb-4 h4 text-justify">
+      Update Details
+    </a>
+  </div>
+</div>
+</div>
+{% comment %}
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+<div class="container">
+<div class="row">
+  <div class="col-lg-offset-4"></div>
+  <div class="col-lg-8 m-auto">
+    <div class="bg-secondary">
+      <div class="row">
+        <div class="col-lg-3 pl-4 py-2">
+          {{ requrst.profile_pic.url }}
+        </div>
+        <div class="col-lg-9 text-white pt-5">
+          <h3 style="text-transform: uppercase;">{{ form.first_name }} {{ last_name }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-offset-4"></div>
+  <div class="col-lg-8 m-auto">
+  <table>
+    <tr>
+      <th>ID:</th>
+      <th>{{ ids }}</th>
+    </tr>
+    <tr>
+      <td>Full Name:</td>
+      <td>{{ form.first_name }} {{ form.last_name }}</td>
+    </tr>
+    <tr>
+      <td>Username:</td>
+      <td>{{ form.username }}</td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td>{{ form.email }}</td>
+    </tr>
+    <tr>
+      <td>Mobile:</td>
+      <td>{{form.mobile }}</td>
+    </tr>
+    <tr>
+      <td>Last Order</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>Last Login</td>
+      <td>None</td>
+    </tr>
+  </table>
+    <div class="bg-info text-white py-1 pl-2">
+      <h4>Profile</h4>
+    </div>
+    <table>
+      <tr>
+        <th>Bio::</th>
+        <th>{{ form.bio }}</th>
+      </tr>
+      <tr>
+        <td>Birthday:</td>
+        <td>{{ form.birth_day }}</td>
+      </tr>
+      <tr>
+        <td>Gender:</td>
+        <td>{{ form.gender }}</td>
+      </tr>
+    </table>
+    <a href="{% url 'profile_update' %}" class="btn-info btn-block text-center text-white py-2 mb-4 h4 text-justify">
+      Update Details 
+    </a>
+  </div>
+</div>
+</div>
+{% endblock %}
+{% endcomment %}
+{% endblock %}

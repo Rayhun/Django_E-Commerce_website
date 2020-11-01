@@ -18,34 +18,41 @@
             {% endif %}
             <h3>Registration Form</h3>
             <div class="form-group">
-                <input type="text" placeholder="First Name" name="firstname" value="{{values.first_name}}" class="form-control">
-                <input type="text" placeholder="Last Name" name="lastname" value="{{values.last_name}}" class="form-control">
+                *<input type="text" placeholder="First Name" name="firstname" value="{{values.first_name}}" class="form-control">
+                *<input type="text" placeholder="Last Name" name="lastname" value="{{values.last_name}}" class="form-control">
             </div>
             <div class="form-wrapper">
-                <input type="text" placeholder="Username" value="{{values.username}}" name="username" class="form-control">
+                *<input type="text" placeholder="Username" value="{{values.username}}" name="username" class="form-control">
                 <i class="zmdi zmdi-account"></i>
             </div>
             <div class="form-wrapper">
-                <input type="email" name="email" value="{{values.email}}" placeholder="Email Address" class="form-control">
+                *<input type="email" name="email" value="{{values.email}}" placeholder="Email Address" class="form-control">
                 <i class="zmdi zmdi-email"></i>
             </div>
             <div class="form-wrapper">
-                <select name="gender" id="" class="form-control">
+                *<input type="number" name="mobile" value="{{values.mobile}}" placeholder="Mobile Number" class="form-control">
+                <i class="zmdi zmdi-email"></i>
+            </div>
+            <div class="form-wrapper">
+                *<select name="gender" id="" class="form-control">
                     <option value="" disabled selected>Gender</option>
-                    <option value="male">Male</option>
-                    <option value="femal">Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Femal">Female</option>
                     <option value="other">Other</option>
                 </select>
                 <i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
             </div>
             <div class="form-wrapper">
-                <input type="password" name="password" placeholder="Password" class="form-control">
+                *<input type="password" name="password" placeholder="Password" class="form-control">
                 <i class="zmdi zmdi-lock"></i>
             </div>
             <!-- <div class="form-wrapper">
                 <input type="password" name="password2" placeholder="Confirm Password" class="form-control">
                 <i class="zmdi zmdi-lock"></i>
             </div> -->
+            <div class="form-wrapper">
+                <input type="file" name="image" enctype="static/image">
+            </div>
             <button>Register
                 <i class="zmdi zmdi-arrow-right"></i>
             </button>

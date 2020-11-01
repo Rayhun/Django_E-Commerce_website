@@ -27,32 +27,31 @@
             <span class="badge badge-info">{{ request.session.cart.keys|length }}</span>
             <span class="sr-only">(current)</span></a>
         </li>
+        
         <li class="nav-item active">
-          <a class="nav-link" href="{% url 'orders' %}">Order <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="{% url 'logout' %}">Logout <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{% url 'orders' %}">Order{{ request.username }} <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Account
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
             <a class="dropdown-item" href="#">Setting & Privacy</a>
             <a class="dropdown-item" href="#">Help & Support</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Logout</a>
+            <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
           </div>
         </li>
         {% else %}
         <li class="nav-item active">
-          <a class="nav-link" href="{% url 'cart' %}">Cart <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{% url 'cart' %}">Cart 
+            <span class="badge badge-info">{{ request.session.cart.keys|length }}</span>  
+          <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
             <a class="nav-link" href="/signup">Signup <span class="sr-only">(current)</span></a>
           </li>
-          
           <li class="nav-item active">
             <a class="nav-link" href="/login">Lognin <span class="sr-only">(current)</span></a>
           </li>

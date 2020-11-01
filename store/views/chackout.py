@@ -10,8 +10,9 @@ class Chackout(View):
         mobile = request.POST.get('mobile')
         customer = request.session.get('customer_id')
         cart = request.session.get('cart')
+        
+        print(date)
         products = Product.get_product_by_id(list(cart.keys()))
-
         for product in products:
             order = Order(
                 customer=Customer(id=customer),
@@ -22,5 +23,6 @@ class Chackout(View):
                 quantity=cart.get(str(product.id))
             )
             order.save()
+        
         request.session['cart'] = {}
         return redirect('cart')

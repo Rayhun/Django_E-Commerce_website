@@ -10,7 +10,7 @@ class AdminProduct(admin.ModelAdmin):
     list_display = ['name', 'price', 'category', 'date']
 
 class AdminOoder(admin.ModelAdmin):
-    list_display = ['product', 'quantity', 'price', 'status']
+    list_display = ['product', 'quantity', 'price', 'status', 'date']
 admin.site.register(Product, AdminProduct)
 admin.site.register(Category, MPTTModelAdmin)  
 admin.site.register(Customer)
