@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # MPTT
     'mptt',
+    'django_filters',
     #  My Apps
     'store',
 

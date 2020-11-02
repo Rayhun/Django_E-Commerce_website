@@ -29,17 +29,19 @@ class Index(View):
         return redirect("home")
 
     def get(self, request):
+        
         products = None
         categorys = Category.objects.all()
-        categoryID = request.GET.get('category')
-
         
+        categoryID = request.GET.get('category')
         if categoryID:
             products = Product.get_all_products_by_id(categoryID)
         else:
             products = Product.get_all_products()
+            
         contex = {
             'products':products,
             'categorys':categorys,
+            
         }
         return render(request, 'index.html', contex)

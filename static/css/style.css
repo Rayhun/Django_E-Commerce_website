@@ -204,3 +204,23 @@
     
     
   /* sourceMappingURL=style.css.map */
+
+  /* ================ Profile ============= */
+  .profile tr td,th{
+    padding-left: 15px!important;
+  }
+  
+  select {
+    width: 175px;
+}
+.btn:not(:disabled):not(.disabled) {
+  padding-left: 10px;
+}
+.cart-btn {
+  padding-left: 20px;
+  position: absolute;
+  top: -22px;
+  right: 29%;
+  height: 35px;
+  width: 75px;
+}

@@ -3,8 +3,15 @@
 {% load cart %}
 {% load custom_filter %}
 <div class="container">
-    <div class="border pb-4">
+    <div class="card card-body">
+        <form method="GET">
 
+           <p style="font-size:16px;"> {{ myFilter.form }}</p>
+
+            <button class="btn btn-primary cart-btn" type="submit">Search</button>
+        </form>
+    </div>
+    <div class="border pb-4">
         <table class="table">
             <thead>
                 <tr>

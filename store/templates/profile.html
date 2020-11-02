@@ -22,15 +22,15 @@ tr:nth-child(even) {
 <div class="row">
   <div class="col-lg-offset-4"></div>
   <div class="col-lg-8 m-auto">
-    <div class="bg-info text-white py-1 pl-2">
+    <div class="bg-info text-white py-1 pl-3">
       <h4>Customer Profile</h4>
     </div>
-    <div class="bg-secondary p-2">
+    <div class="p-3" style="background: #dddddd;">
       <div class="row">
         <div class="col-lg-2">
-          <img width="100" height="110" src="{{ customer.profile_pic.url }}" alt="">
+          <img width="100" height="110" style="border-radius: 10px; border:1px solid #17A2B8;" src="{{ customer.profile_pic.url }}" alt="">
         </div>
-        <div class="col-lg-10 pt-5 text-white">
+        <div class="col-lg-10 pt-5 text-secondary">
           <h4 style="text-transform: uppercase;">{{ first_name }} {{ last_name }}</h4>
         </div>
       </div>
@@ -40,7 +40,7 @@ tr:nth-child(even) {
 <div class="row">
   <div class="col-lg-offset-4"></div>
   <div class="col-lg-8 m-auto">
-  <table>
+  <table class="profile">
     <tr>
       <th>ID:</th>
       <th>{{ customer_id }}</th>
