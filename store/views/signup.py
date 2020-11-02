@@ -15,7 +15,6 @@ class Signup(View):
         last_name = postData.get('lastname')
         username = postData.get('username')
         email = postData.get('email')
-        mobile = postData.get('mobile')
         gender = postData.get('gender')
         password = postData.get('password')
         
@@ -24,15 +23,13 @@ class Signup(View):
             'last_name' : last_name,
             'username' : username,
             'email' : email,
-            'mobile' : mobile,
             'gender' :gender,
         }
 
         customer = Customer(first_name=first_name, 
                                 last_name=last_name, 
                                 username=username, 
-                                email=email,  
-                                mobile=mobile,  
+                                email=email,   
                                 gender=gender,
                                 password=password
                                 )
@@ -71,8 +68,6 @@ class Signup(View):
             error_message = 'Email Already Registered!'
         elif len(customer.email) < 4:
             error_message = 'email is too short'
-        elif len(customer.mobile) < 5:
-            error_message = "Chack Your Number"
         elif not customer.gender:
             error_message = "gender is requiered"
         elif not customer.password:

@@ -23,15 +23,15 @@ tr:nth-child(even) {
   <div class="col-lg-offset-4"></div>
   <div class="col-lg-8 m-auto">
     <div class="bg-info text-white py-1 pl-2">
-      <h4>Profile</h4>
+      <h4>Customer Profile</h4>
     </div>
     <div class="bg-secondary p-2">
       <div class="row">
         <div class="col-lg-2">
-          <img width="100" src="{% static 'images/demo.jpg' %}" alt="">
+          <img width="100" height="110" src="{{ customer.profile_pic.url }}" alt="">
         </div>
-        <div class="col-lg-10 h4 pt-5 text-white">
-          {{ first_name }} {{ last_name }}
+        <div class="col-lg-10 pt-5 text-white">
+          <h4 style="text-transform: uppercase;">{{ first_name }} {{ last_name }}</h4>
         </div>
       </div>
     </div>
@@ -46,19 +46,19 @@ tr:nth-child(even) {
       <th>{{ customer_id }}</th>
     </tr>
     <tr>
-      <td>Full Name:</td>
+      <th>Full Name:</th>
       <td>{{ first_name }} {{ last_name }}</td>
     </tr>
     <tr>
-      <td>Username:</td>
-      <td>{{ customer }}</td>
+      <th>Username:</th>
+      <td>{{ username }}</td>
     </tr>
     <tr>
-      <td>Email:</td>
+      <th>Email:</th>
       <td>{{ email }}</td>
     </tr>
     <tr>
-      <td>Mobile:</td>
+      <th>Mobile:</th>
       <td>{{ mobile }}</td>
     </tr>
       <tr>
@@ -66,27 +66,23 @@ tr:nth-child(even) {
         <th>{{ bio }}</th>
       </tr>
       <tr>
-        <td>Birthday:</td>
+        <th>Birthday:</th>
         <td>{{ birth_day }}</td>
       </tr>
       <tr>
-        <td>Gender:</td>
+        <th>Gender:</th>
         <td>{{ gender }}</td>
       </tr>
       <tr>
-        <td>Last O,Q</td>
-        <td><a href="{% url 'cart' %}">{{ product|length }} Product</a></td>
-      </tr>
-      <tr>
-        <td>Last Order</td>
+        <th>Last Order</th>
         <td>{{ order.date }}</td>
       </tr>
       <tr>
-        <td>Date Joined</td>
+        <th>Date Joined</th>
         <td>{{ user.date_joined }}</td>
       </tr>
       <tr>
-        <td>Last Login</td>
+        <th>Last Login</th>
         <td>{{ user.last_login }}</td>
       </tr>
     </table>

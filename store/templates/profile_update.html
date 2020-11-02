@@ -24,7 +24,8 @@ tr:nth-child(even) {
 </div>
 <div class="row">
   <div class="col-lg-offset-4"></div>
-  <div class="col-lg-8 m-auto">
+  <div class="col-lg-8 m-auto p-3">
+    <img src="{{ request.user.customer.profile_pic.url }}" alt="">
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <table>
@@ -37,8 +38,8 @@ tr:nth-child(even) {
               <td>{{ form.last_name }}</td>
             </tr>
             <tr>
-            <tr>
-              <td>Username</td>
+            <tr style="display: none;">
+              <td >Username</td>
               <td>{{ form.username }}</td>
             </tr>
             <tr>
@@ -68,10 +69,6 @@ tr:nth-child(even) {
             <tr>
               <td>Birth Day</td>
               <td>{{ form.birth_day }}</td>
-            </tr>
-            <tr>
-              <td>Birth Day</td>
-              <td>{{ form.profile_img.url }}</td>
             </tr>
             </table>
             <button type="submit" href="{% url 'profile' %}" class="btn-info btn-block text-white py-2 pl-2 mb-4 h4 text-justify">

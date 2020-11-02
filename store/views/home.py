@@ -32,6 +32,7 @@ class Index(View):
         products = None
         categorys = Category.objects.all()
         categoryID = request.GET.get('category')
+
         
         if categoryID:
             products = Product.get_all_products_by_id(categoryID)

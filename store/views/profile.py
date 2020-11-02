@@ -9,14 +9,11 @@ class Profile(View):
         customer_id = request.session.get('customer_id')
         username = request.session.get('username')
         customer = Customer.get_customer_by_username(username)
-
         order = Order.get_order_by_customer_id(customer_id)
         order = order.last()
-
-        cart = request.session.get('cart')
-        product = Product.get_product_by_id(cart)
-
+        
         if customer:
+           
            first_name = request.session['first_name'] = customer.first_name
            last_name = request.session['last_name'] = customer.last_name
            email = request.session['email'] = customer.email
@@ -35,7 +32,6 @@ class Profile(View):
             'gender': gender,
             'bio': bio,
             'birth_day': birth_day,
-            'product':product,
             'order':order
         }
         

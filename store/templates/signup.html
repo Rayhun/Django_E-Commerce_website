@@ -8,7 +8,7 @@
         <div class="image-holder">
             <img src="{% static '/images/registration-form-1.jpg' %}" alt="">
         </div>
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
 
             {% if error %}
@@ -30,10 +30,6 @@
                 <i class="zmdi zmdi-email"></i>
             </div>
             <div class="form-wrapper">
-                *<input type="number" name="mobile" value="{{values.mobile}}" placeholder="Mobile Number" class="form-control">
-                <i class="zmdi zmdi-email"></i>
-            </div>
-            <div class="form-wrapper">
                 *<select name="gender" id="" class="form-control">
                     <option value="" disabled selected>Gender</option>
                     <option value="Male">Male</option>
@@ -50,9 +46,6 @@
                 <input type="password" name="password2" placeholder="Confirm Password" class="form-control">
                 <i class="zmdi zmdi-lock"></i>
             </div> -->
-            <div class="form-wrapper">
-                <input type="file" name="image" enctype="static/image">
-            </div>
             <button>Register
                 <i class="zmdi zmdi-arrow-right"></i>
             </button>

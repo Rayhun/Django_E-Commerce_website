@@ -7,16 +7,16 @@ class Customer(models.Model):
         ('FEMALE', 'Female'),
         ('OTHERS', 'Others'),
     ]
-    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, null=True,blank=True, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    mobile = models.CharField(max_length=50, null=True)
-    profile_pic = models.ImageField(null=True, blank=True)
+    mobile = models.CharField(max_length=50, null=True, blank=True)
+    profile_pic = models.ImageField(null=True, blank=True,default="demo.jpg")
     username = models.CharField(max_length=50)
     email = models.EmailField(max_length=50)
     password = models.CharField(max_length=500)
     bio = models.TextField(null=True, blank=True)
-    birth_day = models.CharField(null=True, blank=True, max_length=200)
+    birth_day = models.CharField(null=True, blank=True,max_length=200)
     gender = models.CharField(
         max_length=6,
         choices = GENDER_CHOICE,
