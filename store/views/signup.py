@@ -15,7 +15,6 @@ class Signup(View):
         last_name = postData.get('lastname')
         username = postData.get('username')
         email = postData.get('email')
-        gender = postData.get('gender')
         password = postData.get('password')
         
         value = {
@@ -23,14 +22,12 @@ class Signup(View):
             'last_name' : last_name,
             'username' : username,
             'email' : email,
-            'gender' :gender,
         }
 
         customer = Customer(first_name=first_name, 
                                 last_name=last_name, 
                                 username=username, 
                                 email=email,   
-                                gender=gender,
                                 password=password
                                 )
 

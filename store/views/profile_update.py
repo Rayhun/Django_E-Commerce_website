@@ -10,7 +10,7 @@ class ProfileUpdate(View):
         form = CustomerForm(instance=Customer.objects.filter(
             pk=request.session.get('customer_id')).first())
         return render(request, 'profile_update.html',{'form':form})
-
+        
 
     def post(self, request, *args, **kwargs):
         customer = request.session.get('customer_id')

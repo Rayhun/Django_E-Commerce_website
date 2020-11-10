@@ -22,6 +22,7 @@ class Customer(models.Model):
         choices = GENDER_CHOICE,
         default='MALE',
         null=True,
+        blank=True,
     )
 
     def __str__(self):

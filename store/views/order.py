@@ -14,6 +14,7 @@ class OrderView(View):
         customer = request.session.get('customer_id')
         orders = Order.get_order_by_customer_id(customer)
         orders = orders.reverse()
+        print(orders)
 
         myFilter = OrderFlteri(self.request.GET, queryset=orders)
         orders = myFilter.qs
