@@ -25,3 +25,5 @@ sqlparse==0.3.1
 virtualenv==20.0.18
 virtualenvwrapper-win==1.2.6
 wrapt==1.11.2
+django-heroku==0.3.1
+psycopg2==2.7.5
